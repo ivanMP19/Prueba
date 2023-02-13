@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/searchListFragment">
+
+    <fragment
+        android:id="@+id/searchListFragment"
+        android:name="com.example.prueba.ui.searchProduct.SearchProductFragment"
+        android:label="SearchListFragment"
+        tools:layout="@layout/fragment_search_product">
+        <action
+            android:id="@+id/action_nav_home_searchListFragment_productListFragment"
+            app:destination="@id/productListFragment"/>
+    </fragment>
+
+    <!--  Product List  -->
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.example.prueba.ui.productsList.ProductsListFragment"
+        android:label="productListFragment"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_nav_home_productListFragment_searchListFragment"
+            app:destination="@id/searchListFragment"/>
+        <argument
+            android:name="searchProduct"
+            app:argType="string"
+            app:nullable="false"
+            android:defaultValue="Juguetes"/>
+    </fragment>
+
+</navigation>
